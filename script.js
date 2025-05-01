@@ -38,6 +38,12 @@ toggleBtn.addEventListener("click", () => {
         question: "Choose the odd one",
         answers: ["Ship", "Bus", "Car","Motorcycle"],
         correct: 0
+    },
+
+    {
+        question: "What is the largest organ in the human body?",
+        answers: ["Heart", "Skin", "Brain","Liver"],
+        correct: 1
     }
 ];
 
@@ -105,7 +111,25 @@ function showScore() {
     nextBtn.style.display = "none";
     scoreEl.style.display = "block";
     scoreEl.textContent = `Score: ${score} / ${questions.length}`;
+    document.getElementById("back-btn").style.display = "block";
+
 }
+
+const backBtn = document.getElementById("back-btn");
+
+backBtn.onclick = () => {
+    
+    currentQuestionIndex = 0;
+    score = 0;
+
+    questionEl.style.display = "block";
+    answersEl.style.display = "block";
+    nextBtn.style.display = "none";
+    scoreEl.style.display = "none";
+    backBtn.style.display = "none";
+
+    showQuestion();
+};
 
 showQuestion();
 
